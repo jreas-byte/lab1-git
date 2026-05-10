@@ -5,3 +5,6 @@ app
 *.exe
 build/
 .vscode/
+lab4/venv/
+lab4/__pycache__/
+lab4/.pytest_cache/
