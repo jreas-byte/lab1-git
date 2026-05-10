@@ -24,11 +24,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r lab7/requirements.txt
 
-      - name: Перевірити стиль коду
-        run: flake8 lab7/app.py lab7/test_app.py
+            - name: Перевірити стиль коду
+        run: flake8 app.py test_app.py
+        working-directory: lab7
 
       - name: Запустити doctest
-        run: python -m doctest lab7/app.py -v
+        run: python -m doctest app.py -v
+        working-directory: lab7
 
       - name: Запустити unit-тести
-        run: python -m unittest lab7/test_app.py
+        run: python -m unittest test_app.py
+        working-directory: lab7
