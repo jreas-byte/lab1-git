@@ -1,0 +1,38 @@
+name: Final Project CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Отримати код
+        uses: actions/checkout@v4
+
+      - name: Встановити Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Встановити залежності
+        working-directory: final_project
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Перевірити форматування
+        working-directory: final_project
+        run: make lint
+
+      - name: Запустити тести
+        working-directory: final_project
+        run: make test
+
+      - name: Перевірити вразливості
+        working-directory: final_project
+        run: make audit

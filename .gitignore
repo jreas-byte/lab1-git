@@ -14,3 +14,7 @@ lab7/__pycache__/
 lab7/.pytest_cache/
 lab8/__pycache__/
 lab8/.env
+final_project/__pycache__/
+final_project/.pytest_cache/
+final_project/venv/
+final_project/.env
